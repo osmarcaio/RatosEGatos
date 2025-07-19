@@ -28,7 +28,7 @@ func set_target_position(pos: Vector2):
 func _draw() -> void:
 	if dragging:
 		var line_final = get_global_mouse_position() - position
-		draw_line(Vector2(0, 0), line_final, Color.WHITE, 2)
+		draw_line(Vector2(0, 0), line_final, Color.WHITE, 1)
 
 func _on_button_button_down() -> void:
 	dragging = true
