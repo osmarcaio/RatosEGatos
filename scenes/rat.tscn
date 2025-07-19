@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d03oeuctq4why"]
+
+[ext_resource type="Texture2D" uid="uid://b7wod0qqnprnf" path="res://assets/sprites/rat.png" id="1_1l88y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l88y"]
+size = Vector2(16, 16)
+
+[node name="Rat" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1l88y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1l88y")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c461twdyy4o7j"]
+
+[ext_resource type="Texture2D" uid="uid://cgdcry7cwp2e0" path="res://assets/sprites/cat.png" id="1_myi5k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_myi5k"]
+size = Vector2(16, 16)
+
+[node name="Cat" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_myi5k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_myi5k")
