@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://73v6yc5txqr0" path="res://assets/sprites/counter.png" id="1_sc7mx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8e5hq"]
-size = Vector2(24, 96)
+size = Vector2(16, 96)
 
 [node name="Counter" type="StaticBody2D"]
 
@@ -11,4 +11,5 @@ size = Vector2(24, 96)
 texture = ExtResource("1_sc7mx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 0)
 shape = SubResource("RectangleShape2D_8e5hq")
