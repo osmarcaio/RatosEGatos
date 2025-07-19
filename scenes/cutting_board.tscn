@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbtutj3rq8enb"]
+
+[ext_resource type="Texture2D" uid="uid://bh1fmdixiytxf" path="res://assets/sprites/cutting_board.png" id="1_m4ftk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oihve"]
+size = Vector2(32, 16)
+
+[node name="CuttingBoard" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_m4ftk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_oihve")

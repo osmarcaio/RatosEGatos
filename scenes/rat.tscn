@@ -22,5 +22,9 @@ shape = SubResource("RectangleShape2D_1l88y")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_1l88y")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 2.0
+target_desired_distance = 2.0
+
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
