@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dexbifofem2uu"]
+
+[ext_resource type="Script" uid="uid://c5mav8qn4r5ks" path="res://scripts/stove.gd" id="1_54o2j"]
+[ext_resource type="Texture2D" uid="uid://cryrbckgw7g6n" path="res://assets/sprites/stove_1.png" id="1_bocw4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_54o2j"]
+size = Vector2(32, 16)
+
+[node name="Stove" type="StaticBody2D"]
+script = ExtResource("1_54o2j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bocw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_54o2j")

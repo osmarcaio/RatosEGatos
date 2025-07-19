@@ -1,14 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://c461twdyy4o7j"]
+[gd_scene load_steps=5 format=3 uid="uid://c461twdyy4o7j"]
 
 [ext_resource type="Texture2D" uid="uid://cgdcry7cwp2e0" path="res://assets/sprites/cat.png" id="1_myi5k"]
+[ext_resource type="Script" uid="uid://dbu177lni5orx" path="res://scripts/cat.gd" id="1_se5fe"]
+[ext_resource type="AudioStream" uid="uid://d063kj5crrfgg" path="res://assets/sounds/cat/cat_hungry.wav" id="3_t8pth"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_myi5k"]
 size = Vector2(16, 16)
 
 [node name="Cat" type="CharacterBody2D"]
+script = ExtResource("1_se5fe")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_myi5k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_myi5k")
+
+[node name="CatVoice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_t8pth")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
