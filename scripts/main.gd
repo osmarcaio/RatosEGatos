@@ -9,6 +9,7 @@ var rat_scene := preload("res://scenes/rat.tscn")
 }
 @onready var rats: Node2D = $Rats
 
+
 func _ready() -> void:
 	pass
 

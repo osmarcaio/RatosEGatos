@@ -39,9 +39,18 @@ func set_target_position(base:Vector2, variation=0):
 		randf_range(-variation, variation),
 		randf_range(-variation, variation)
 	)
-	print(base, random_vec, base + random_vec)
 	
-	navigation_agent_2d.target_position = base + random_vec
+	var new_position = base + random_vec
+	
+	if new_position.x < 16:
+		new_position.x = 16
+		
+	if new_position.y < 48:
+		new_position.y = 48
+	elif new_position.y > 172:
+		new_position.y = 172
+	
+	navigation_agent_2d.target_position = new_position
 
 func _draw() -> void:
 	if dragging:
