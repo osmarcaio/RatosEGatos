@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d03oeuctq4why"]
+[gd_scene load_steps=9 format=3 uid="uid://d03oeuctq4why"]
 
-[ext_resource type="Texture2D" uid="uid://b7wod0qqnprnf" path="res://assets/sprites/rat.png" id="1_1l88y"]
 [ext_resource type="Script" uid="uid://bekdllu1rrj5f" path="res://scripts/rat.gd" id="1_77a1s"]
+[ext_resource type="Texture2D" uid="uid://csrlp87ln56al" path="res://assets/sprites/rat1.png" id="2_3csnj"]
+[ext_resource type="Texture2D" uid="uid://b773ugdls1vxg" path="res://assets/sprites/rat_chef.png" id="3_6s34g"]
+[ext_resource type="Texture2D" uid="uid://cjhlwo3sv5e6f" path="res://assets/sprites/rat_waiter.png" id="4_368s2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1l88y"]
 size = Vector2(16, 16)
@@ -12,6 +14,9 @@ bg_color = Color(0, 0, 0, 0.294118)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77a1s"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnna8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="Rat" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_77a1s")
@@ -19,14 +24,14 @@ script = ExtResource("1_77a1s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1l88y")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_1l88y")
+[node name="RatSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_3csnj")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 2.0
 target_desired_distance = 11.0
 
-[node name="Button" type="Button" parent="."]
+[node name="RatButton" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0.392157)
 offset_left = -8.0
 offset_top = -8.0
@@ -34,6 +39,75 @@ offset_right = 8.0
 offset_bottom = 8.0
 theme_override_styles/hover = SubResource("StyleBoxFlat_acf8p")
 theme_override_styles/normal = SubResource("StyleBoxFlat_77a1s")
+metadata/_edit_use_anchors_ = true
 
-[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
-[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[node name="Select" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -12.0
+offset_top = -18.0
+offset_right = 12.0
+offset_bottom = -10.0
+
+[node name="Chef" type="Control" parent="Select"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ChefSprite" type="Sprite2D" parent="Select/Chef"]
+position = Vector2(4, 4)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_6s34g")
+
+[node name="ChefButton" type="Button" parent="Select/Chef"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_nnna8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Waiter" type="Control" parent="Select"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_right = 8.0
+offset_bottom = 4.0
+grow_vertical = 2
+
+[node name="WaiterSprite" type="Sprite2D" parent="Select/Waiter"]
+position = Vector2(4, 4)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_368s2")
+
+[node name="WaiterButton" type="Button" parent="Select/Waiter"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_nnna8")
+metadata/_edit_use_anchors_ = true
+
+[node name="SelectPopTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[connection signal="button_down" from="RatButton" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="RatButton" to="." method="_on_button_button_up"]
+[connection signal="focus_entered" from="RatButton" to="." method="_on_rat_button_focus_entered"]
+[connection signal="focus_exited" from="RatButton" to="." method="_on_rat_button_focus_exited"]
+[connection signal="toggled" from="RatButton" to="." method="_on_rat_button_toggled"]
+[connection signal="focus_entered" from="Select" to="." method="_on_select_focus_entered"]
+[connection signal="focus_exited" from="Select" to="." method="_on_select_focus_exited"]
+[connection signal="pressed" from="Select/Chef/ChefButton" to="." method="_on_chef_button_pressed"]
+[connection signal="pressed" from="Select/Waiter/WaiterButton" to="." method="_on_waiter_button_pressed"]
+[connection signal="timeout" from="SelectPopTimer" to="." method="_on_select_pop_timer_timeout"]

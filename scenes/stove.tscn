@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cryrbckgw7g6n" path="res://assets/sprites/stove_1.png" id="1_bocw4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_54o2j"]
-size = Vector2(32, 16)
+size = Vector2(32, 21)
 
 [node name="Stove" type="StaticBody2D"]
 script = ExtResource("1_54o2j")
@@ -13,5 +13,5 @@ script = ExtResource("1_54o2j")
 texture = ExtResource("1_bocw4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_54o2j")
