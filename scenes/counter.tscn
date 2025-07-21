@@ -1,15 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2e3gj76yfuqx"]
+[gd_scene load_steps=6 format=3 uid="uid://d2e3gj76yfuqx"]
 
+[ext_resource type="Script" uid="uid://c2hn7ps1xe4dp" path="res://scripts/counter.gd" id="1_8e5hq"]
 [ext_resource type="Texture2D" uid="uid://73v6yc5txqr0" path="res://assets/sprites/counter.png" id="1_sc7mx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8e5hq"]
-size = Vector2(16, 96)
+size = Vector2(24, 106)
 
-[node name="Counter" type="StaticBody2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8e5hq"]
+bg_color = Color(0, 0, 0, 0.0980392)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_laq1u"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Counter" type="StaticBody2D" groups=["counters", "interactive"]]
+collision_layer = 2
+script = ExtResource("1_8e5hq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_sc7mx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 0)
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_8e5hq")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -12.0
+offset_top = -58.0
+offset_right = 12.0
+offset_bottom = 49.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_8e5hq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_laq1u")

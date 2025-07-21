@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxldhrenkhifr"
-path="res://.godot/imported/stove_3.png-e8efaedd6c4dafb92abff5a1129eb35d.ctex"
+uid="uid://q5w8id2otd71"
+path="res://.godot/imported/fish.png-e425c75a680053b29193ae6955cb3cc5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/stove_3.png"
-dest_files=["res://.godot/imported/stove_3.png-e8efaedd6c4dafb92abff5a1129eb35d.ctex"]
+source_file="res://assets/sprites/fish.png"
+dest_files=["res://.godot/imported/fish.png-e425c75a680053b29193ae6955cb3cc5.ctex"]
 
 [params]
 

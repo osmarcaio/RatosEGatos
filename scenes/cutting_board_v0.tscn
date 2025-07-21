@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbtutj3rq8enb"]
+
+[ext_resource type="Script" uid="uid://cww6055c81ac6" path="res://cutting_board.gd" id="1_oihve"]
+[ext_resource type="Texture2D" uid="uid://cu5cg1uqd623j" path="res://assets/sprites/cutting_board1.png" id="2_oihve"]
+[ext_resource type="Texture2D" uid="uid://cxyoacvc23cwp" path="res://assets/sprites/cutting_board2.png" id="3_j4crm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oihve"]
+size = Vector2(28, 14)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oihve"]
+bg_color = Color(0, 0, 0, 0.0980392)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4crm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="CuttingBoard" type="StaticBody2D" groups=["cutting_boards", "interactive"]]
+script = ExtResource("1_oihve")
+
+[node name="Sprite1" type="Sprite2D" parent="."]
+texture = ExtResource("2_oihve")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_j4crm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_oihve")
+
+[node name="WorkerPosition" type="Marker2D" parent="."]
+position = Vector2(0, 14)
+
+[node name="Button" type="Button" parent="."]
+offset_left = -14.0
+offset_top = -7.0
+offset_right = 14.0
+offset_bottom = 7.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_oihve")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j4crm")
+
+[node name="Select" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -20.0
+offset_top = -15.0
+offset_right = 20.0
+offset_bottom = -7.0

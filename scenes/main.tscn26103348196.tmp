@@ -1,0 +1,221 @@
+[gd_scene load_steps=20 format=4 uid="uid://7wdvxax4k3p5"]
+
+[ext_resource type="Script" uid="uid://dn7ci8pw2gy20" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://t30ctawqo02m" path="res://assets/sprites/cenary.png" id="2_choun"]
+[ext_resource type="Texture2D" uid="uid://b4lnwncmksgs" path="res://assets/sprites/plate.png" id="2_tefeu"]
+[ext_resource type="PackedScene" uid="uid://c461twdyy4o7j" path="res://scenes/cat.tscn" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://cjb3e1v5t4e6r" path="res://assets/sprites/meat.png" id="3_trceg"]
+[ext_resource type="Texture2D" uid="uid://q5w8id2otd71" path="res://assets/sprites/fish.png" id="4_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://dexbifofem2uu" path="res://scenes/stove.tscn" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://cryrbckgw7g6n" path="res://assets/sprites/stove_1.png" id="4_tipki"]
+[ext_resource type="PackedScene" uid="uid://cq5ok3y5ht73v" path="res://scenes/table.tscn" id="5_choun"]
+[ext_resource type="Texture2D" uid="uid://dyuuq3whxeok3" path="res://assets/sprites/sauce.png" id="5_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://6okn86fymwwb" path="res://assets/sprites/table.png" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://d2e3gj76yfuqx" path="res://scenes/counter.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://bbtutj3rq8enb" path="res://scenes/cutting_board.tscn" id="9_85g3d"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_tefeu"]
+vertices = PackedVector2Array(74, 106, 150, 42, 150, 154, 74, 118, 74, 70, -41.7734, 42, 38, 70, -41.0469, 170.023, 38, 106, 74, 154, 38, 118, 38, 154, 294, 170.922, 202, 154, 294, 58, 202, 58)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 0, 4), PackedInt32Array(5, 1, 4, 6), PackedInt32Array(7, 5, 6, 8), PackedInt32Array(2, 9, 3), PackedInt32Array(8, 0, 3, 10), PackedInt32Array(7, 8, 10), PackedInt32Array(7, 10, 11), PackedInt32Array(12, 7, 11, 9), PackedInt32Array(12, 9, 2), PackedInt32Array(12, 2, 13), PackedInt32Array(14, 12, 13, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-52, 0, 320, 0, 321, 181, -51, 180)])
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
+texture = ExtResource("2_tefeu")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6xl0"]
+texture = ExtResource("5_tbgi4")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85g3d"]
+texture = ExtResource("4_tipki")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_jyhfs"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_o6xl0")
+sources/0 = SubResource("TileSetAtlasSource_tipki")
+sources/2 = SubResource("TileSetAtlasSource_85g3d")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_choun"]
+size = Vector2(155, 20)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_o5qli")
+
+[node name="GUI" type="CanvasLayer" parent="."]
+layer = 0
+follow_viewport_enabled = true
+
+[node name="LeftInterface" type="Control" parent="GUI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 36.0
+offset_right = 126.0
+offset_bottom = 31.0
+
+[node name="RightInterface" type="Control" parent="GUI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 160.0
+offset_top = 2.0
+offset_right = 277.0
+offset_bottom = 28.0
+
+[node name="MeatBox" type="Control" parent="GUI/RightInterface"]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 34.0
+offset_bottom = 12.0
+
+[node name="Sprite2D" type="Sprite2D" parent="GUI/RightInterface/MeatBox"]
+texture = ExtResource("3_trceg")
+centered = false
+
+[node name="MeatLabel" type="Label" parent="GUI/RightInterface/MeatBox"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -8.5
+offset_bottom = 8.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "100"
+vertical_alignment = 1
+
+[node name="FishBox" type="Control" parent="GUI/RightInterface"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -12.0
+offset_right = 34.0
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="GUI/RightInterface/FishBox"]
+texture = ExtResource("4_a8y0u")
+centered = false
+
+[node name="FishLabel" type="Label" parent="GUI/RightInterface/FishBox"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -8.5
+offset_bottom = 8.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "100"
+vertical_alignment = 1
+
+[node name="SauceBox" type="Control" parent="GUI/RightInterface"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -17.0
+offset_right = 17.0
+offset_bottom = 12.0
+grow_horizontal = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="GUI/RightInterface/SauceBox"]
+texture = ExtResource("5_jkv2x")
+centered = false
+
+[node name="SauceLabel" type="Label" parent="GUI/RightInterface/SauceBox"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -8.5
+offset_bottom = 8.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "100"
+vertical_alignment = 1
+
+[node name="Cenary" type="Sprite2D" parent="."]
+position = Vector2(159, 90)
+texture = ExtResource("2_choun")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+top_level = true
+anchor_mode = 0
+zoom = Vector2(4, 4)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_tefeu")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="NavigationRegion2D"]
+self_modulate = Color(1, 1, 1, 0.392157)
+tile_map_data = PackedByteArray("AAAKAAIAAgAAAAAAAAAKAAMAAgAAAAAAAAAKAAQAAgAAAAAAAAAKAAUAAgAAAAAAAAAKAAYAAgAAAAAAAAAKAAcAAgAAAAAAAAAKAAgAAgAAAAAAAAALAAIAAgAAAAAAAAALAAMAAgAAAAAAAAALAAQAAgAAAAAAAAALAAUAAgAAAAAAAAALAAYAAgAAAAAAAAALAAcAAgAAAAAAAAALAAgAAgAAAAAAAAAMAAIAAgAAAAAAAAANAAIAAgAAAAAAAAAOAAIAAgAAAAAAAAAPAAIAAgAAAAAAAAAQAAIAAgAAAAAAAAARAAIAAgAAAAAAAAASAAIAAgAAAAAAAAATAAIAAgAAAAAAAAATAAMAAgAAAAAAAAATAAQAAgAAAAAAAAATAAUAAgAAAAAAAAATAAYAAgAAAAAAAAATAAcAAgAAAAAAAAATAAgAAgAAAAAAAAATAAkAAgAAAAAAAAATAAoAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAEAAgAAAAAAAAABAAAAAgAAAAAAAAABAAEAAgAAAAAAAAACAAAAAgAAAAAAAAACAAEAAgAAAAAAAAADAAAAAgAAAAAAAAADAAEAAgAAAAAAAAAEAAAAAgAAAAAAAAAEAAEAAgAAAAAAAAAFAAAAAgAAAAAAAAAFAAEAAgAAAAAAAAAGAAAAAgAAAAAAAAAGAAEAAgAAAAAAAAAHAAAAAgAAAAAAAAAHAAEAAgAAAAAAAAAIAAAAAgAAAAAAAAAIAAEAAgAAAAAAAAAJAAAAAgAAAAAAAAAJAAEAAgAAAAAAAAAKAAAAAgAAAAAAAAAKAAEAAgAAAAAAAAALAAAAAgAAAAAAAAALAAEAAgAAAAAAAAAMAAAAAgAAAAAAAAAMAAEAAgAAAAAAAAANAAAAAgAAAAAAAAANAAEAAgAAAAAAAAAOAAAAAgAAAAAAAAAOAAEAAgAAAAAAAAAPAAAAAgAAAAAAAAAPAAEAAgAAAAAAAAAQAAAAAgAAAAAAAAAQAAEAAgAAAAAAAAARAAAAAgAAAAAAAAARAAEAAgAAAAAAAAASAAAAAgAAAAAAAAASAAEAAgAAAAAAAAATAAAAAgAAAAAAAAATAAEAAgAAAAAAAAD//wAAAgAAAAAAAAD//wEAAgAAAAAAAAD9/wAAAgAAAAAAAAD9/wEAAgAAAAAAAAD+/wAAAgAAAAAAAAD+/wEAAgAAAAAAAAADAAUAAgAAAAAAAAADAAgAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_jyhfs")
+
+[node name="Furniture" type="Node2D" parent="."]
+
+[node name="Table" parent="Furniture" instance=ExtResource("5_choun")]
+position = Vector2(56, 89)
+
+[node name="Stove" parent="Furniture" instance=ExtResource("4_jyhfs")]
+unique_name_in_owner = true
+position = Vector2(224, 46)
+
+[node name="Counter" parent="Furniture" instance=ExtResource("7_o6xl0")]
+position = Vector2(175, 96)
+
+[node name="CuttingBoard" parent="Furniture" instance=ExtResource("9_85g3d")]
+position = Vector2(272, 46)
+
+[node name="Table2" parent="Furniture" instance=ExtResource("5_choun")]
+position = Vector2(56, 136)
+
+[node name="TopBox" type="StaticBody2D" parent="Furniture"]
+visible = false
+position = Vector2(241, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/TopBox"]
+position = Vector2(1, 33)
+shape = SubResource("RectangleShape2D_choun")
+
+[node name="Cats" type="Node2D" parent="."]
+
+[node name="Cat" parent="Cats" instance=ExtResource("3_jyhfs")]
+position = Vector2(56, 89)
+
+[node name="Cat2" parent="Cats" instance=ExtResource("3_jyhfs")]
+position = Vector2(56, 136)
+
+[node name="Rats" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="WaiterPosition" type="Marker2D" parent="Markers"]
+position = Vector2(135, 111)
+
+[node name="ChefPosition" type="Marker2D" parent="Markers"]
+position = Vector2(246, 119)
+
+[node name="StarterPosition" type="Marker2D" parent="Markers"]
+position = Vector2(-26, 114)
+
+[node name="EntryPosition" type="Marker2D" parent="Markers"]
+position = Vector2(23, 112)
+
+[connection signal="food_produced" from="Furniture/Stove" to="." method="_on_stove_food_produced"]

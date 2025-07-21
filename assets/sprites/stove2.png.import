@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cltjav1cy15by"
-path="res://.godot/imported/stove_2.png-cb0ed7127102cbf21110f34e33704b43.ctex"
+uid="uid://io37w5n7eg3u"
+path="res://.godot/imported/stove2.png-34e78becfea4c450451eac63b9c97e96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/stove_2.png"
-dest_files=["res://.godot/imported/stove_2.png-cb0ed7127102cbf21110f34e33704b43.ctex"]
+source_file="res://assets/sprites/stove2.png"
+dest_files=["res://.godot/imported/stove2.png-34e78becfea4c450451eac63b9c97e96.ctex"]
 
 [params]
 

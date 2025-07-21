@@ -29,7 +29,7 @@ texture = ExtResource("2_3csnj")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 2.0
-target_desired_distance = 11.0
+target_desired_distance = 2.0
 
 [node name="RatButton" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0.392157)
@@ -39,7 +39,6 @@ offset_right = 8.0
 offset_bottom = 8.0
 theme_override_styles/hover = SubResource("StyleBoxFlat_acf8p")
 theme_override_styles/normal = SubResource("StyleBoxFlat_77a1s")
-metadata/_edit_use_anchors_ = true
 
 [node name="Select" type="Control" parent="."]
 visible = false
@@ -98,7 +97,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_nnna8")
 metadata/_edit_use_anchors_ = true
 
 [node name="SelectPopTimer" type="Timer" parent="."]
-wait_time = 0.15
+wait_time = 0.1
 one_shot = true
 
 [connection signal="button_down" from="RatButton" to="." method="_on_button_button_down"]
@@ -108,6 +107,8 @@ one_shot = true
 [connection signal="toggled" from="RatButton" to="." method="_on_rat_button_toggled"]
 [connection signal="focus_entered" from="Select" to="." method="_on_select_focus_entered"]
 [connection signal="focus_exited" from="Select" to="." method="_on_select_focus_exited"]
+[connection signal="button_down" from="Select/Chef/ChefButton" to="." method="_on_chef_button_button_down"]
 [connection signal="pressed" from="Select/Chef/ChefButton" to="." method="_on_chef_button_pressed"]
+[connection signal="button_down" from="Select/Waiter/WaiterButton" to="." method="_on_waiter_button_button_down"]
 [connection signal="pressed" from="Select/Waiter/WaiterButton" to="." method="_on_waiter_button_pressed"]
 [connection signal="timeout" from="SelectPopTimer" to="." method="_on_select_pop_timer_timeout"]

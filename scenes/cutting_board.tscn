@@ -1,14 +1,126 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbtutj3rq8enb"]
+[gd_scene load_steps=10 format=3 uid="uid://c5ryyw3gdxlvm"]
 
-[ext_resource type="Texture2D" uid="uid://bh1fmdixiytxf" path="res://assets/sprites/cutting_board.png" id="1_m4ftk"]
+[ext_resource type="Script" uid="uid://bbdcfxk3n18yi" path="res://scripts/cutting_board.gd" id="1_dsgkq"]
+[ext_resource type="Texture2D" uid="uid://cu5cg1uqd623j" path="res://assets/sprites/cutting_board1.png" id="2_oihve"]
+[ext_resource type="Texture2D" uid="uid://cxyoacvc23cwp" path="res://assets/sprites/cutting_board2.png" id="3_j4crm"]
+[ext_resource type="Texture2D" uid="uid://c0bl27a523wit" path="res://assets/sprites/lettuce.png" id="4_oj4ry"]
+[ext_resource type="Texture2D" uid="uid://bnkdlr4vrdc7v" path="res://assets/sprites/tomato.png" id="5_oj4ry"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oihve"]
-size = Vector2(32, 16)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_54o2j"]
+size = Vector2(28, 14)
 
-[node name="CuttingBoard" type="StaticBody2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4tnxd"]
+bg_color = Color(0, 0, 0, 0.0980392)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_m4ftk")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54o2j"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ieqif"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="CuttingBoard" type="StaticBody2D" groups=["interactive", "stoves"]]
+script = ExtResource("1_dsgkq")
+
+[node name="Sprite1" type="Sprite2D" parent="."]
+texture = ExtResource("2_oihve")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_j4crm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_oihve")
+shape = SubResource("RectangleShape2D_54o2j")
+
+[node name="MainButton" type="Button" parent="."]
+z_index = 1
+offset_left = -14.0
+offset_top = -7.0
+offset_right = 14.0
+offset_bottom = 7.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_4tnxd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_54o2j")
+
+[node name="Select" type="Control" parent="."]
+visible = false
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = -15.0
+offset_top = -23.0
+offset_right = 15.0
+offset_bottom = -9.0
+
+[node name="Lettuce" type="Control" parent="Select"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -12.0
+offset_right = 12.0
+grow_vertical = 0
+
+[node name="LettuceButton" type="Button" parent="Select/Lettuce"]
+layout_mode = 0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ieqif")
+
+[node name="Sprite2D" type="Sprite2D" parent="Select/Lettuce"]
+texture = ExtResource("4_oj4ry")
+centered = false
+
+[node name="Tomato" type="Control" parent="Select"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TomatoButton" type="Button" parent="Select/Tomato"]
+layout_mode = 0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ieqif")
+
+[node name="Sprite2D" type="Sprite2D" parent="Select/Tomato"]
+texture = ExtResource("5_oj4ry")
+centered = false
+
+[node name="SelectPopTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="FoodTimer" type="Timer" parent="."]
+wait_time = 7.0
+
+[node name="WorkerPosition" type="Marker2D" parent="."]
+position = Vector2(0, 17)
+
+[node name="ProgressBarArea" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -14.0
+offset_top = -8.0
+offset_right = 9.0
+offset_bottom = -7.0
+
+[node name="ProgressBar" type="ColorRect" parent="ProgressBarArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.706161, 0.325805, 9.62615e-08, 0.588235)
+
+[connection signal="focus_exited" from="MainButton" to="." method="_on_stove_button_focus_exited"]
+[connection signal="pressed" from="MainButton" to="." method="_on_main_button_pressed"]
+[connection signal="button_down" from="Select/Lettuce/LettuceButton" to="." method="_on_lettuce_button_button_down"]
+[connection signal="button_down" from="Select/Tomato/TomatoButton" to="." method="_on_tomato_button_button_down"]
+[connection signal="timeout" from="SelectPopTimer" to="." method="_on_select_pop_timer_timeout"]
+[connection signal="timeout" from="FoodTimer" to="." method="_on_food_timer_timeout"]

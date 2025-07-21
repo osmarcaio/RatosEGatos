@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqy3bwtm6jnao"]
+
+[ext_resource type="Script" uid="uid://srg4yyqp3gdl" path="res://scripts/rat_button.gd" id="1_536tw"]
+[ext_resource type="Texture2D" uid="uid://cg5tdwaxi5kra" path="res://assets/sprites/rat_button1.png" id="2_ejg7y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_av74b"]
+bg_color = Color(0, 0, 0, 0.0980392)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ejg7y"]
+bg_color = Color(1, 1, 1, 0.0980392)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvpwg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="RatButton" type="Node2D"]
+script = ExtResource("1_536tw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 0.5)
+texture = ExtResource("2_ejg7y")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -9.0
+offset_top = -8.0
+offset_right = 9.0
+offset_bottom = 9.0
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxFlat_av74b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ejg7y")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bvpwg")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

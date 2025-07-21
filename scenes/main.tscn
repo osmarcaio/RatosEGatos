@@ -1,19 +1,29 @@
-[gd_scene load_steps=15 format=4 uid="uid://7wdvxax4k3p5"]
+[gd_scene load_steps=26 format=4 uid="uid://7wdvxax4k3p5"]
 
 [ext_resource type="Script" uid="uid://dn7ci8pw2gy20" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://t30ctawqo02m" path="res://assets/sprites/cenary.png" id="2_choun"]
 [ext_resource type="Texture2D" uid="uid://b4lnwncmksgs" path="res://assets/sprites/plate.png" id="2_tefeu"]
-[ext_resource type="PackedScene" uid="uid://c461twdyy4o7j" path="res://scenes/cat.tscn" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://cjb3e1v5t4e6r" path="res://assets/sprites/meat.png" id="3_trceg"]
+[ext_resource type="Texture2D" uid="uid://q5w8id2otd71" path="res://assets/sprites/fish.png" id="4_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://dexbifofem2uu" path="res://scenes/stove.tscn" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://cryrbckgw7g6n" path="res://assets/sprites/stove_1.png" id="4_tipki"]
-[ext_resource type="PackedScene" uid="uid://cq5ok3y5ht73v" path="res://scenes/table.tscn" id="5_choun"]
+[ext_resource type="Texture2D" uid="uid://c0bl27a523wit" path="res://assets/sprites/lettuce.png" id="5_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://dyuuq3whxeok3" path="res://assets/sprites/sauce.png" id="5_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://6okn86fymwwb" path="res://assets/sprites/table.png" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://bnkdlr4vrdc7v" path="res://assets/sprites/tomato.png" id="7_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://d2e3gj76yfuqx" path="res://scenes/counter.tscn" id="7_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://bbtutj3rq8enb" path="res://scenes/cutting_board.tscn" id="9_85g3d"]
+[ext_resource type="Texture2D" uid="uid://b3wsm0si7yuft" path="res://assets/sprites/potato.png" id="8_0ld40"]
+[ext_resource type="PackedScene" uid="uid://c5ryyw3gdxlvm" path="res://scenes/cutting_board.tscn" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://cvbssyajjpvsi" path="res://scenes/fryer.tscn" id="14_jkv2x"]
+[ext_resource type="AudioStream" uid="uid://d2epeav5y84gk" path="res://assets/music/background_music.mp3" id="16_jbj1t"]
+[ext_resource type="Script" uid="uid://ci621o8nsh2jf" path="res://scripts/plate_instance.gd" id="17_0ld40"]
+[ext_resource type="PackedScene" uid="uid://cqy3bwtm6jnao" path="res://scenes/rat_button.tscn" id="17_muem4"]
+[ext_resource type="Texture2D" uid="uid://bd4mbky578fgb" path="res://assets/sprites/cheese.png" id="18_dp3eg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_tefeu"]
-vertices = PackedVector2Array(74, 106, 166, 58, 166, 154, 74, 118, 74, 70, 26, 58, 38, 70, 26, 106, 38, 106, -41.1172, 179.047, -42.8672, 42, -10, 42, -10, 106, -10, 118, -10, 179.242, 26, 118, 38, 118, 74, 154, 38, 154, 26, 166, 246, 166, 202, 154, 246, 58, 202, 58)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 0, 4), PackedInt32Array(5, 1, 4, 6), PackedInt32Array(7, 5, 6, 8), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(13, 14, 9), PackedInt32Array(13, 9, 12), PackedInt32Array(13, 12, 7, 15), PackedInt32Array(15, 7, 8, 16), PackedInt32Array(2, 17, 3), PackedInt32Array(8, 0, 3, 16), PackedInt32Array(15, 16, 18, 19), PackedInt32Array(20, 19, 18, 17), PackedInt32Array(20, 17, 2), PackedInt32Array(20, 2, 21), PackedInt32Array(22, 20, 21, 23)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-53, 32, 272, 32, 272, 191, -51, 189)])
+vertices = PackedVector2Array(-26, 102, -26, 170.18, -96, 170.023, -96, 10, 10, 90, 10, 42, 150, 42, 150, 154, 202, 154, 202, 58, 294, 58, 294, 170.93, 10, 170.273, 10, 102, -26, 90, -26, 10)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(8, 11, 12, 7), PackedInt32Array(7, 12, 13), PackedInt32Array(4, 7, 13), PackedInt32Array(14, 4, 13, 0), PackedInt32Array(14, 0, 3), PackedInt32Array(15, 14, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-106, 0, 320, 0, 321, 181, -106, 180)])
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
 texture = ExtResource("2_tefeu")
@@ -36,81 +46,302 @@ sources/1 = SubResource("TileSetAtlasSource_o6xl0")
 sources/0 = SubResource("TileSetAtlasSource_tipki")
 sources/2 = SubResource("TileSetAtlasSource_85g3d")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_choun"]
+size = Vector2(155, 20)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_o5qli")
+
+[node name="Control" type="Control" parent="."]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="LeftInterface" type="Control" parent="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 36.0
+offset_right = 126.0
+offset_bottom = 31.0
+
+[node name="CheeseBox" type="Control" parent="Control/LeftInterface"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 6.0
+offset_right = 63.0
+offset_bottom = 16.0
+scale = Vector2(1.71202, 1.71202)
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/LeftInterface/CheeseBox"]
+texture = ExtResource("18_dp3eg")
+centered = false
+
+[node name="CheeseLabel" type="Label" parent="Control/LeftInterface/CheeseBox"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.0
+offset_right = -11.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+horizontal_alignment = 2
+
+[node name="RightInterface" type="Control" parent="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 160.0
+offset_top = 2.0
+offset_right = 277.0
+offset_bottom = 28.0
+
+[node name="MeatBox" type="Control" parent="Control/RightInterface"]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 34.0
+offset_bottom = 12.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/RightInterface/MeatBox"]
+texture = ExtResource("3_trceg")
+centered = false
+
+[node name="MeatLabel" type="Label" parent="Control/RightInterface/MeatBox"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -8.5
+offset_bottom = 8.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "100"
+vertical_alignment = 1
+
+[node name="FishBox" type="Control" parent="Control/RightInterface"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -12.0
+offset_right = 34.0
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/RightInterface/FishBox"]
+texture = ExtResource("4_a8y0u")
+centered = false
+
+[node name="FishLabel" type="Label" parent="Control/RightInterface/FishBox"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -8.5
+offset_bottom = 8.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "100"
+vertical_alignment = 1
+
+[node name="SauceBox" type="Control" parent="Control/RightInterface"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -17.0
+offset_right = 17.0
+offset_bottom = 12.0
+grow_horizontal = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/RightInterface/SauceBox"]
+texture = ExtResource("5_jkv2x")
+centered = false
+
+[node name="SauceLabel" type="Label" parent="Control/RightInterface/SauceBox"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -8.5
+offset_bottom = 8.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "100"
+vertical_alignment = 1
+
+[node name="LettuceBox" type="Control" parent="Control/RightInterface"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -12.0
+offset_right = 17.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/RightInterface/LettuceBox"]
+texture = ExtResource("5_a8y0u")
+centered = false
+
+[node name="LettuceLabel" type="Label" parent="Control/RightInterface/LettuceBox"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -8.5
+offset_bottom = 8.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "100"
+vertical_alignment = 1
+
+[node name="TomatoBox" type="Control" parent="Control/RightInterface"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -34.0
+offset_bottom = 12.0
+grow_horizontal = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/RightInterface/TomatoBox"]
+texture = ExtResource("7_dp3eg")
+centered = false
+
+[node name="TomatoLabel" type="Label" parent="Control/RightInterface/TomatoBox"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -8.5
+offset_bottom = 8.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "100"
+vertical_alignment = 1
+
+[node name="PotatoBox" type="Control" parent="Control/RightInterface"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -34.0
+offset_top = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/RightInterface/PotatoBox"]
+texture = ExtResource("8_0ld40")
+centered = false
+
+[node name="PotatoLabel" type="Label" parent="Control/RightInterface/PotatoBox"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -8.5
+offset_bottom = 8.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "100"
+vertical_alignment = 1
+
+[node name="Cenary" type="Sprite2D" parent="."]
+position = Vector2(159, 90)
+texture = ExtResource("2_choun")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 top_level = true
 anchor_mode = 0
 zoom = Vector2(4, 4)
 
-[node name="GUI" type="CanvasLayer" parent="."]
-visible = false
-follow_viewport_enabled = true
-
-[node name="TopInterface" type="Control" parent="GUI"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 256.0
-offset_bottom = 42.0
-
-[node name="ColorRect" type="ColorRect" parent="GUI/TopInterface"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="RightInterface" type="Control" parent="GUI"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 256.0
-offset_right = 320.0
-offset_bottom = 180.0
-
-[node name="ColorRect" type="ColorRect" parent="GUI/RightInterface"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_tefeu")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="NavigationRegion2D"]
+visible = false
 self_modulate = Color(1, 1, 1, 0.392157)
-tile_map_data = PackedByteArray("AAABAAIAAgAAAAAAAAABAAMAAQAAAAAAAAACAAIAAgAAAAAAAAACAAMAAQAAAAAAAAADAAIAAgAAAAAAAAADAAMAAQAAAAAAAAAEAAIAAgAAAAAAAAAEAAMAAQAAAAAAAAAFAAIAAgAAAAAAAAAFAAMAAQAAAAAAAAAGAAIAAgAAAAAAAAAGAAMAAQAAAAAAAAAHAAIAAgAAAAAAAAAHAAMAAQAAAAAAAAAIAAIAAgAAAAAAAAAIAAMAAQAAAAAAAAABAAQAAQAAAAAAAAABAAUAAQAAAAAAAAABAAYAAQAAAAAAAAABAAcAAQAAAAAAAAABAAgAAQAAAAAAAAACAAQAAQAAAAAAAAACAAUAAQAAAAAAAAACAAYAAQAAAAAAAAACAAcAAQAAAAAAAAACAAgAAQAAAAAAAAADAAQAAQAAAAAAAAADAAUAAgAAAAAAAAADAAYAAQAAAAAAAAADAAcAAQAAAAAAAAADAAgAAgAAAAAAAAAEAAQAAQAAAAAAAAAEAAUAAQAAAAAAAAAEAAYAAQAAAAAAAAAEAAcAAQAAAAAAAAAEAAgAAQAAAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQAAAAAAAAAFAAYAAQAAAAAAAAAFAAcAAQAAAAAAAAAFAAgAAQAAAAAAAAAGAAQAAQAAAAAAAAAGAAUAAQAAAAAAAAAGAAYAAQAAAAAAAAAGAAcAAQAAAAAAAAAGAAgAAQAAAAAAAAAHAAQAAQAAAAAAAAAHAAUAAQAAAAAAAAAHAAYAAQAAAAAAAAAHAAcAAQAAAAAAAAAHAAgAAQAAAAAAAAAIAAQAAQAAAAAAAAAIAAUAAQAAAAAAAAAIAAYAAQAAAAAAAAAIAAcAAQAAAAAAAAAIAAgAAQAAAAAAAAAJAAIAAgAAAAAAAAAJAAMAAQAAAAAAAAAJAAQAAQAAAAAAAAAJAAUAAQAAAAAAAAAJAAYAAQAAAAAAAAAJAAcAAQAAAAAAAAAJAAgAAQAAAAAAAAAKAAIAAgAAAAAAAAAKAAMAAQAAAAAAAAAKAAQAAQAAAAAAAAAKAAUAAQAAAAAAAAAKAAYAAQAAAAAAAAAKAAcAAQAAAAAAAAAKAAgAAQAAAAAAAAALAAIAAgAAAAAAAAALAAMAAgAAAAAAAAALAAQAAgAAAAAAAAALAAUAAgAAAAAAAAALAAYAAgAAAAAAAAALAAcAAgAAAAAAAAALAAgAAgAAAAAAAAAMAAgAAQAAAAAAAAANAAIAAgAAAAAAAAANAAMAAQAAAAAAAAANAAQAAQAAAAAAAAANAAUAAQAAAAAAAAANAAYAAQAAAAAAAAANAAcAAQAAAAAAAAANAAgAAQAAAAAAAAAOAAIAAgAAAAAAAAAOAAMAAQAAAAAAAAAOAAQAAQAAAAAAAAAOAAUAAQAAAAAAAAAOAAYAAQAAAAAAAAAOAAcAAQAAAAAAAAAOAAgAAQAAAAAAAAAPAAIAAgAAAAAAAAAPAAMAAQAAAAAAAAAPAAQAAQAAAAAAAAAPAAUAAQAAAAAAAAAPAAYAAQAAAAAAAAAPAAcAAQAAAAAAAAAPAAgAAQAAAAAAAAAQAAIAAgAAAAAAAAAQAAMAAgAAAAAAAAAQAAQAAgAAAAAAAAAQAAUAAgAAAAAAAAAQAAYAAgAAAAAAAAAQAAcAAgAAAAAAAAAQAAgAAgAAAAAAAAARAAIAAgAAAAAAAAARAAMAAQAAAAAAAAARAAQAAQAAAAAAAAARAAUAAQAAAAAAAAARAAYAAQAAAAAAAAARAAcAAQAAAAAAAAARAAgAAQAAAAAAAAASAAIAAgAAAAAAAAASAAMAAQAAAAAAAAASAAQAAQAAAAAAAAASAAUAAQAAAAAAAAASAAYAAQAAAAAAAAASAAcAAQAAAAAAAAASAAgAAQAAAAAAAAAAAAUAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAYAAQAAAAAAAAAAAAcAAQAAAAAAAAAAAAgAAgAAAAAAAAAMAAIAAgAAAAAAAAAMAAMAAQAAAAAAAAAMAAQAAQAAAAAAAAAMAAUAAQAAAAAAAAAMAAYAAQAAAAAAAAAMAAcAAQAAAAAAAAAAAAkAAgAAAAAAAAAAAAoAAgAAAAAAAAABAAkAAQAAAAAAAAABAAoAAQAAAAAAAAACAAkAAQAAAAAAAAACAAoAAQAAAAAAAAADAAkAAQAAAAAAAAADAAoAAQAAAAAAAAAEAAkAAQAAAAAAAAAEAAoAAQAAAAAAAAAFAAkAAQAAAAAAAAAFAAoAAQAAAAAAAAAGAAkAAQAAAAAAAAAGAAoAAQAAAAAAAAAHAAkAAQAAAAAAAAAHAAoAAQAAAAAAAAAIAAkAAQAAAAAAAAAIAAoAAQAAAAAAAAAJAAkAAQAAAAAAAAAJAAoAAQAAAAAAAAAKAAkAAQAAAAAAAAAKAAoAAQAAAAAAAAALAAkAAQAAAAAAAAALAAoAAQAAAAAAAAAMAAkAAQAAAAAAAAAMAAoAAQAAAAAAAAANAAkAAQAAAAAAAAANAAoAAQAAAAAAAAAOAAkAAQAAAAAAAAAOAAoAAQAAAAAAAAAPAAkAAQAAAAAAAAAPAAoAAQAAAAAAAAAQAAkAAgAAAAAAAAAQAAoAAgAAAAAAAAARAAkAAQAAAAAAAAARAAoAAQAAAAAAAAASAAkAAQAAAAAAAAASAAoAAQAAAAAAAAATAAkAAQAAAAAAAAATAAoAAQAAAAAAAAATAAIAAgAAAAAAAAATAAMAAQAAAAAAAAATAAQAAQAAAAAAAAATAAUAAQAAAAAAAAATAAYAAQAAAAAAAAATAAcAAQAAAAAAAAATAAgAAQAAAAAAAAAAAAsAAgAAAAAAAAABAAsAAgAAAAAAAAACAAsAAgAAAAAAAAADAAsAAgAAAAAAAAAEAAsAAgAAAAAAAAAFAAsAAgAAAAAAAAAGAAsAAgAAAAAAAAAHAAsAAgAAAAAAAAAIAAsAAgAAAAAAAAAJAAsAAgAAAAAAAAAKAAsAAgAAAAAAAAALAAsAAgAAAAAAAAAMAAsAAgAAAAAAAAANAAsAAgAAAAAAAAAOAAsAAgAAAAAAAAAPAAsAAgAAAAAAAAAQAAsAAgAAAAAAAAARAAsAAgAAAAAAAAASAAsAAgAAAAAAAAATAAsAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAKAAIAAgAAAAAAAAAKAAMAAgAAAAAAAAAKAAQAAgAAAAAAAAAKAAUAAgAAAAAAAAAKAAYAAgAAAAAAAAAKAAcAAgAAAAAAAAAKAAgAAgAAAAAAAAALAAIAAgAAAAAAAAALAAMAAgAAAAAAAAALAAQAAgAAAAAAAAALAAUAAgAAAAAAAAALAAYAAgAAAAAAAAALAAcAAgAAAAAAAAALAAgAAgAAAAAAAAAMAAIAAgAAAAAAAAANAAIAAgAAAAAAAAAOAAIAAgAAAAAAAAAPAAIAAgAAAAAAAAAQAAIAAgAAAAAAAAARAAIAAgAAAAAAAAASAAIAAgAAAAAAAAATAAIAAgAAAAAAAAATAAMAAgAAAAAAAAATAAQAAgAAAAAAAAATAAUAAgAAAAAAAAATAAYAAgAAAAAAAAATAAcAAgAAAAAAAAATAAgAAgAAAAAAAAATAAkAAgAAAAAAAAATAAoAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAEAAgAAAAAAAAABAAAAAgAAAAAAAAABAAEAAgAAAAAAAAACAAAAAgAAAAAAAAACAAEAAgAAAAAAAAADAAAAAgAAAAAAAAADAAEAAgAAAAAAAAAEAAAAAgAAAAAAAAAEAAEAAgAAAAAAAAAFAAAAAgAAAAAAAAAFAAEAAgAAAAAAAAAGAAAAAgAAAAAAAAAGAAEAAgAAAAAAAAAHAAAAAgAAAAAAAAAHAAEAAgAAAAAAAAAIAAAAAgAAAAAAAAAIAAEAAgAAAAAAAAAJAAAAAgAAAAAAAAAJAAEAAgAAAAAAAAAKAAAAAgAAAAAAAAAKAAEAAgAAAAAAAAALAAAAAgAAAAAAAAALAAEAAgAAAAAAAAAMAAAAAgAAAAAAAAAMAAEAAgAAAAAAAAANAAAAAgAAAAAAAAANAAEAAgAAAAAAAAAOAAAAAgAAAAAAAAAOAAEAAgAAAAAAAAAPAAAAAgAAAAAAAAAPAAEAAgAAAAAAAAAQAAAAAgAAAAAAAAAQAAEAAgAAAAAAAAARAAAAAgAAAAAAAAARAAEAAgAAAAAAAAASAAAAAgAAAAAAAAASAAEAAgAAAAAAAAATAAAAAgAAAAAAAAATAAEAAgAAAAAAAAD//wAAAgAAAAAAAAD//wEAAgAAAAAAAAD//wcAAgAAAAAAAAD//wgAAgAAAAAAAAD//wkAAgAAAAAAAAD//woAAgAAAAAAAAD//wIAAgAAAAAAAAD//wMAAgAAAAAAAAD//wQAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_jyhfs")
 
 [node name="Furniture" type="Node2D" parent="."]
 
-[node name="Table" parent="Furniture" instance=ExtResource("5_choun")]
-position = Vector2(56, 89)
-
 [node name="Stove" parent="Furniture" instance=ExtResource("4_jyhfs")]
-position = Vector2(240, 58)
-
-[node name="Counter" parent="Furniture" instance=ExtResource("7_o6xl0")]
-position = Vector2(180, 96)
+unique_name_in_owner = true
+position = Vector2(224, 47)
 
 [node name="CuttingBoard" parent="Furniture" instance=ExtResource("9_85g3d")]
-position = Vector2(208, 56)
+unique_name_in_owner = true
+position = Vector2(273.5, 45.5)
 
-[node name="Table2" parent="Furniture" instance=ExtResource("5_choun")]
-position = Vector2(56, 136)
+[node name="Counter" parent="Furniture" instance=ExtResource("7_o6xl0")]
+unique_name_in_owner = true
+position = Vector2(175, 96)
+
+[node name="TopBox" type="StaticBody2D" parent="Furniture"]
+visible = false
+position = Vector2(241, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/TopBox"]
+position = Vector2(1, 33)
+shape = SubResource("RectangleShape2D_choun")
+
+[node name="Fryer" parent="Furniture" instance=ExtResource("14_jkv2x")]
+unique_name_in_owner = true
+position = Vector2(310.5, 72.5)
+
+[node name="Plate" type="Node2D" parent="Furniture"]
+unique_name_in_owner = true
+position = Vector2(175, 133)
+script = ExtResource("17_0ld40")
+
+[node name="PlateSprite" type="Sprite2D" parent="Furniture/Plate"]
+texture = ExtResource("2_tefeu")
+
+[node name="PlateLabel" type="Label" parent="Furniture/Plate"]
+offset_left = -14.0
+offset_top = -28.0
+offset_right = 14.0
+offset_bottom = -5.0
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Cats" type="Node2D" parent="."]
-
-[node name="Cat" parent="Cats" instance=ExtResource("3_jyhfs")]
-position = Vector2(56, 89)
-
-[node name="Cat2" parent="Cats" instance=ExtResource("3_jyhfs")]
-position = Vector2(56, 136)
 
 [node name="Rats" type="Node2D" parent="."]
 
@@ -120,10 +351,56 @@ position = Vector2(56, 136)
 position = Vector2(135, 111)
 
 [node name="ChefPosition" type="Marker2D" parent="Markers"]
-position = Vector2(225, 113)
+position = Vector2(246, 119)
 
 [node name="StarterPosition" type="Marker2D" parent="Markers"]
-position = Vector2(-26, 114)
+position = Vector2(-78, 96)
 
 [node name="EntryPosition" type="Marker2D" parent="Markers"]
-position = Vector2(38, 112)
+position = Vector2(22, 97)
+
+[node name="CatPosition" type="Marker2D" parent="Markers"]
+position = Vector2(85, 112)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_jbj1t")
+volume_db = -40.0
+autoplay = true
+bus = &"Music"
+
+[node name="RatButton" parent="." instance=ExtResource("17_muem4")]
+unique_name_in_owner = true
+position = Vector2(306, 167)
+
+[node name="Label" type="Label" parent="RatButton"]
+offset_left = -24.0
+offset_top = -5.0
+offset_right = -10.0
+offset_bottom = 17.0
+theme_override_colors/font_color = Color(0.931678, 0.903989, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "15"
+vertical_alignment = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="RatButton"]
+position = Vector2(-17, -5)
+scale = Vector2(0.6875, 0.6875)
+texture = ExtResource("18_dp3eg")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="CatTimer" type="Timer" parent="Timers"]
+wait_time = 10.0
+autostart = true
+
+[node name="GameOverTimer" type="Timer" parent="Timers"]
+wait_time = 3.0
+one_shot = true
+ignore_time_scale = true
+
+[connection signal="food_produced" from="Furniture/Stove" to="." method="_on_food_produced"]
+[connection signal="food_produced" from="Furniture/CuttingBoard" to="." method="_on_food_produced"]
+[connection signal="food_produced" from="Furniture/Fryer" to="." method="_on_food_produced"]
+[connection signal="add_rat" from="RatButton" to="." method="_on_rat_button_add_rat"]
+[connection signal="timeout" from="Timers/CatTimer" to="." method="_on_cat_timer_timeout"]
+[connection signal="timeout" from="Timers/GameOverTimer" to="." method="_on_game_over_timer_timeout"]

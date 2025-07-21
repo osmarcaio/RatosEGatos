@@ -1,17 +1,152 @@
-[gd_scene load_steps=4 format=3 uid="uid://dexbifofem2uu"]
+[gd_scene load_steps=11 format=3 uid="uid://dexbifofem2uu"]
 
 [ext_resource type="Script" uid="uid://c5mav8qn4r5ks" path="res://scripts/stove.gd" id="1_54o2j"]
-[ext_resource type="Texture2D" uid="uid://cryrbckgw7g6n" path="res://assets/sprites/stove_1.png" id="1_bocw4"]
+[ext_resource type="Texture2D" uid="uid://dy76pk2q4o4a" path="res://assets/sprites/stove1.png" id="2_4tnxd"]
+[ext_resource type="Texture2D" uid="uid://cjb3e1v5t4e6r" path="res://assets/sprites/meat.png" id="3_ieqif"]
+[ext_resource type="Texture2D" uid="uid://io37w5n7eg3u" path="res://assets/sprites/stove2.png" id="3_k2xm7"]
+[ext_resource type="Texture2D" uid="uid://q5w8id2otd71" path="res://assets/sprites/fish.png" id="4_4tnxd"]
+[ext_resource type="Texture2D" uid="uid://dyuuq3whxeok3" path="res://assets/sprites/sauce.png" id="5_k2xm7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_54o2j"]
-size = Vector2(32, 21)
+size = Vector2(32, 20)
 
-[node name="Stove" type="StaticBody2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4tnxd"]
+bg_color = Color(0, 0, 0, 0.0980392)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54o2j"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ieqif"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Stove" type="StaticBody2D" groups=["interactive", "stoves"]]
 script = ExtResource("1_54o2j")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_bocw4")
+[node name="Sprite1" type="Sprite2D" parent="."]
+texture = ExtResource("2_4tnxd")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_k2xm7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_54o2j")
+
+[node name="MainButton" type="Button" parent="."]
+z_index = 1
+offset_left = -16.0
+offset_top = -10.0
+offset_right = 16.0
+offset_bottom = 11.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_4tnxd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_54o2j")
+
+[node name="Select" type="Control" parent="."]
+visible = false
+z_index = 2
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -23.0
+offset_top = -25.0
+offset_right = 23.0
+offset_bottom = -11.0
+
+[node name="Meat" type="Control" parent="Select"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -12.0
+offset_right = 12.0
+grow_vertical = 0
+
+[node name="MeatButton" type="Button" parent="Select/Meat"]
+layout_mode = 0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ieqif")
+
+[node name="Sprite2D" type="Sprite2D" parent="Select/Meat"]
+texture = ExtResource("3_ieqif")
+centered = false
+
+[node name="Fish" type="Control" parent="Select"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.0
+offset_right = 6.0
+offset_bottom = 12.0
+grow_horizontal = 2
+
+[node name="FishButton" type="Button" parent="Select/Fish"]
+layout_mode = 0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ieqif")
+
+[node name="Sprite2D" type="Sprite2D" parent="Select/Fish"]
+texture = ExtResource("4_4tnxd")
+centered = false
+
+[node name="Sauce" type="Control" parent="Select"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="SauceButton" type="Button" parent="Select/Sauce"]
+layout_mode = 0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ieqif")
+
+[node name="Sprite2D" type="Sprite2D" parent="Select/Sauce"]
+texture = ExtResource("5_k2xm7")
+centered = false
+
+[node name="SelectPopTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="FoodTimer" type="Timer" parent="."]
+wait_time = 7.0
+
+[node name="WorkerPosition" type="Marker2D" parent="."]
+position = Vector2(0, 17)
+
+[node name="ProgressBarArea" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -16.0
+offset_top = -11.0
+offset_right = 16.0
+offset_bottom = -10.0
+
+[node name="ProgressBar" type="ColorRect" parent="ProgressBarArea"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.706161, 0.325805, 9.62615e-08, 0.588235)
+
+[connection signal="focus_exited" from="MainButton" to="." method="_on_stove_button_focus_exited"]
+[connection signal="pressed" from="MainButton" to="." method="_on_main_button_pressed"]
+[connection signal="button_down" from="Select/Meat/MeatButton" to="." method="_on_meat_button_button_down"]
+[connection signal="button_down" from="Select/Meat/MeatButton" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Select/Fish/FishButton" to="." method="_on_fish_button_button_down"]
+[connection signal="button_down" from="Select/Fish/FishButton" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Select/Sauce/SauceButton" to="." method="_on_sauce_button_button_down"]
+[connection signal="timeout" from="SelectPopTimer" to="." method="_on_select_pop_timer_timeout"]
+[connection signal="timeout" from="FoodTimer" to="." method="_on_food_timer_timeout"]

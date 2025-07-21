@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdb5uucoi22m4"]
+[gd_scene load_steps=3 format=3 uid="uid://bdb5uucoi22m4"]
 
+[ext_resource type="Script" uid="uid://cvve0kde2bytr" path="res://scripts/plate.gd" id="1_2x0a8"]
 [ext_resource type="Texture2D" uid="uid://b4lnwncmksgs" path="res://assets/sprites/plate.png" id="1_u60wi"]
 
 [node name="Plate" type="Node2D"]
+script = ExtResource("1_2x0a8")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PlateSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_u60wi")

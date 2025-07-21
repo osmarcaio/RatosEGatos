@@ -5,14 +5,10 @@ signal food_produced(food:String, quantity:int)
 var associated_worker = null
 var selected_food := "none"
 var foods := {
-	"meat": 0.5,
-	"fish": 5,
-	"sauce": 12.5,
+	"potato": 2,
 }
-var food_mult := {
-	"meat": 1,
-	"fish": 12,
-	"sauce": 40
+var food_mult = {
+	"potato": 7,
 }
 
 @onready var select: Control = $Select
@@ -25,7 +21,7 @@ var food_mult := {
 @onready var sprite_2: Sprite2D = $Sprite2
 
 func _ready() -> void:
-	set_selected_food("meat")
+	set_selected_food("potato")
 
 func _process(_delta: float) -> void:
 	update_progress_bar()
@@ -40,15 +36,8 @@ func _on_stove_button_focus_exited() -> void:
 func _on_select_pop_timer_timeout() -> void:
 	select.visible = false
 
-func _on_meat_button_button_down() -> void:
-	set_selected_food("meat")
-	
-
-func _on_fish_button_button_down() -> void:
-	set_selected_food("fish")
-
-func _on_sauce_button_button_down() -> void:
-	set_selected_food("sauce")
+func _on_potato_button_button_down() -> void:
+	set_selected_food("potato")
 
 func set_selected_food(new_food):
 	selected_food = new_food
